@@ -67,6 +67,20 @@ def get_ascii_character_list(avg: list):
     return holder
 
 
+def get_reverse_ascii_character_list(avg: list):
+    holder = []
+
+    for row in range(len(avg)):
+        group = []
+        for column in range(len(avg[0])):
+            char_num = round(avg[row][column] * ((len(ASCII_RANGE) - 1) / 255))
+            ascii_char = ASCII_RANGE[64 - char_num]
+            group.append(ascii_char)
+
+        holder.append(group)
+    return holder
+
+
 def print_ascii_art(ascii_list: list):
     for row in range(len(ascii_list)):
         for column in range(len(ascii_list[0])):
@@ -87,7 +101,20 @@ def get_brightness_mode():
         print("\033[31m Number has to be between 1 and 3 \033[0m")
 
 
+def get_contrast_mode():
+    print("(1. normal 2. inverted)")
+    while True:
+        try:
+            mode = int(input("Pick a contrast mode: "))
+        except ValueError:
+            print("\033[31m Enter a NUMBER 1 or 2 \033[0m")
+        else:
+            if 2 >= mode >= 1:
+                return mode
+        print("\033[31m Number has to be 1 or 2 \033[0m")
+
 brightness_mode = get_brightness_mode()
+contrast_mode = get_contrast_mode()
 
 image = Image.open("images/pineapple.jpg")
 
@@ -100,6 +127,9 @@ elif brightness_mode == 2:
 else:
     pixels = get_average_luminosity_list(pixels)
 
-pixels = get_ascii_character_list(pixels)
+if contrast_mode == 1:
+    pixels = get_ascii_character_list(pixels)
+else:
+    pixels = get_reverse_ascii_character_list(pixels)
 
 print_ascii_art(pixels)
