@@ -88,20 +88,6 @@ def print_ascii_art(ascii_list: list):
         print()
 
 
-def get_image_mode():
-    print("(1. default 2. file path)")
-    while True:
-        try:
-            mode = int(input("How would you like to use an image: "))
-        except ValueError:
-            print("\033[31m Enter a NUMBER 1 or 2 \033[0m")
-        else:
-            if 2 >= mode >= 1:
-                return mode
-            else:
-                print("\033[31m Number has to be 1 or 2 \033[0m")
-
-
 def get_brightness_mode():
     print("(1. avg brightness 2. lightness 3. luminosity)")
     while True:
@@ -130,17 +116,13 @@ def get_contrast_mode():
                 print("\033[31m Number has to be 1 or 2 \033[0m")
 
 
-image_mode = get_image_mode()
-if image_mode == 1:
-    image = Image.open("images/pineapple.jpg")
-else:
-    while True:
-        try:
-            image = Image.open(input("Enter file path for image: "))
-        except FileNotFoundError:
-            print("\033[31m That file was not found (You should probably use an absolute path) \033[0m")
-        else:
-            break
+while True:
+    try:
+        image = Image.open(input("Enter file path for image: "))
+    except FileNotFoundError:
+        print("\033[31m That file was not found (You should probably use an absolute path) \033[0m")
+    else:
+        break
 
 pixels = get_pixel_rgb_list(image)
 
