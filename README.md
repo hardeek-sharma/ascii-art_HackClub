@@ -9,10 +9,12 @@ so the dark parts will be light and vice versa.
 ## EXAMPLE
 
 Starting Image     
-<img src="https://imgur.com/PjBnJQ3.jpg" width="700">
+<img src="https://imgur.com/PjBnJQ3.jpg" width="700" alt="pineapple">
 
-After program (average brightness, no invert)     
-<img src="https://imgur.com/Iv0keBm.jpg" width="700">
+After program (average brightness, no invert)    
+###### (The image might look weird and have large spots, but that goes away if you zoom in)
+<img src="https://imgur.com/Iv0keBm.jpg" width="700" alt="Pineapple after program">
+
 
 Top of pineapple     
-<img src="https://imgur.com/oMqgJ2J.jpg" width="700">
+<img src="https://imgur.com/oMqgJ2J.jpg" width="700" alt="Top of pineapple">
