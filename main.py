@@ -88,6 +88,20 @@ def print_ascii_art(ascii_list: list):
         print()
 
 
+def get_image_mode():
+    print("(1. default 2. file path)")
+    while True:
+        try:
+            mode = int(input("How would you like to use an image: "))
+        except ValueError:
+            print("\033[31m Enter a NUMBER 1 or 2 \033[0m")
+        else:
+            if 2 >= mode >= 1:
+                return mode
+            else:
+                print("\033[31m Number has to be 1 or 2 \033[0m")
+
+
 def get_brightness_mode():
     print("(1. avg brightness 2. lightness 3. luminosity)")
     while True:
@@ -98,7 +112,8 @@ def get_brightness_mode():
         else:
             if 3 >= mode >= 1:
                 return mode
-        print("\033[31m Number has to be between 1 and 3 \033[0m")
+            else:
+                print("\033[31m Number has to be between 1 and 3 \033[0m")
 
 
 def get_contrast_mode():
@@ -111,21 +126,33 @@ def get_contrast_mode():
         else:
             if 2 >= mode >= 1:
                 return mode
-        print("\033[31m Number has to be 1 or 2 \033[0m")
+            else:
+                print("\033[31m Number has to be 1 or 2 \033[0m")
 
-brightness_mode = get_brightness_mode()
-contrast_mode = get_contrast_mode()
 
-image = Image.open("images/pineapple.jpg")
+image_mode = get_image_mode()
+if image_mode == 1:
+    image = Image.open("images/pineapple.jpg")
+else:
+    while True:
+        try:
+            image = Image.open(input("Enter file path for image: "))
+        except FileNotFoundError:
+            print("\033[31m That file was not found (You should probably use an absolute path) \033[0m")
+        else:
+            break
 
 pixels = get_pixel_rgb_list(image)
 
+brightness_mode = get_brightness_mode()
 if brightness_mode == 1:
     pixels = get_average_brightness_list(pixels)
 elif brightness_mode == 2:
     pixels = get_average_lightness_list(pixels)
 else:
     pixels = get_average_luminosity_list(pixels)
+
+contrast_mode = get_contrast_mode()
 
 if contrast_mode == 1:
     pixels = get_ascii_character_list(pixels)
