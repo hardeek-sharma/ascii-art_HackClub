@@ -22,8 +22,5 @@ Top of pineapple
 ## How to Run
 #### (This has only been tested on a Mac so instructions are only for mac)
 
-1. make sure to have the library [pillow](https://pillow.readthedocs.io/en/stable/index.html) installed
-2. Clone repository or compy main.py (when using only main.py only the default image option won't work)
-3. cd into repository folder through terminal
-4. run 'python3 ./main.py'
-5. make sure to zoom out with cmd + '-' to fully see your image
+1. Download the most recent executable from [the releases page](https://github.com/hardeek-sharma/ascii-art_HackClub/releases)   
+2. run executable
