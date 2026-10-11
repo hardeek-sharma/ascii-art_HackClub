@@ -23,4 +23,4 @@ Top of pineapple
 #### (This has only been tested on a Mac so instructions are only for mac)
 
 1. Download the most recent executable from [the releases page](https://github.com/hardeek-sharma/ascii-art_HackClub/releases)   
-2. run executable
+2. Run executable
