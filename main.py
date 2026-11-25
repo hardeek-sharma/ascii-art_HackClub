@@ -1,4 +1,4 @@
-from PIL import Image, ImageOps
+from PIL import Image
 
 ASCII_RANGE = "`^\",:;Il!i~+_-?][}{1)(|\\/tfjrxnuvczXYUJCLQ0OZmwqpdbkhao*#MW&8%B@$"
 
@@ -123,6 +123,8 @@ while True:
         print("\033[31m That file was not found (You should probably use an absolute path) \033[0m")
     else:
         break
+
+image = image.convert("RGB")
 
 pixels = get_pixel_rgb_list(image)
 
